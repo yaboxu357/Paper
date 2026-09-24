@@ -9,3 +9,14 @@ checkpoints/
 *.npz
 *.pth
 *.pt
+
+# Tool scratch space: the local xlsx scripts keep their node_modules here
+.spreadsheet_work/node_modules/
+.spreadsheet_work/roundtrip/
+.spreadsheet_work/previews/
+.spreadsheet_work/baseline_selection_previews/
+.spreadsheet_work/*.png
+.spreadsheet_work/*.txt
+
+# Machine-generated workbook dumps written next to the deliverables
+*.inspect.ndjson
