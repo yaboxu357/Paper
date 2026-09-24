@@ -13,7 +13,7 @@ E-Armor is a multivariate long-term time-series forecasting model that combines 
 - [Release `recovery-v1`](https://github.com/yaboxu357/Paper/releases/tag/recovery-v1): complete dataset and experiment-log archives.
 - `artifacts/SHA256SUMS`: archive integrity checksums.
 
-Traffic data and logs are included in the archives, but Traffic remains excluded from the current recovered result table and evaluation plan.
+Traffic is included in the recovered result table and evaluation plan.
 
 ## Restore data and logs
 
@@ -45,4 +45,4 @@ GPU=0 bash recovery/run_recovered_best.sh
 
 ## Recovered evaluation scope
 
-The canonical recovery table contains eight datasets and prediction horizons of 96, 192, 336, and 720. The retained experiments use the configured single seed 2025. Best runs are selected by final test MSE, with MAE taken from the same run.
+The canonical recovery table contains nine datasets and prediction horizons of 96, 192, 336, and 720. The retained experiments use the configured single seed 2025. Within each dataset and horizon, MSE and MAE are independently min-max normalized across completed runs; the retained run minimizes their equal-weight mean.

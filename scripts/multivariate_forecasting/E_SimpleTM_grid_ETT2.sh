@@ -173,7 +173,7 @@ run_one() {
 
 for pred_len in 96 192 336 720; do
   case "${dataset_name}_${pred_len}" in
-    ETTh1_96)  base_dm=64; base_ff=64;  base_el=1; base_lr=0.02;  base_wv=db1;     base_alpha=0.3; base_m=3; base_gd=0.5; base_l1=0.0005;  base_bs=256; base_as=1.25; base_alr=1.4; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
+    ETTh1_96)  base_dm=32; base_ff=32;  base_el=1; base_lr=0.02;  base_wv=db4;     base_alpha=0.3; base_m=3; base_gd=0.5; base_l1=0.0005;  base_bs=256; base_as=1.25; base_alr=1.4; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
     ETTh1_192) base_dm=32; base_ff=32;  base_el=1; base_lr=0.02;  base_wv=bior3.3; base_alpha=1.0; base_m=3; base_gd=0.5; base_l1=0.00005; base_bs=256; base_as=0.75; base_alr=1.4; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
     ETTh1_336) base_dm=64; base_ff=128; base_el=3; base_lr=0.002; base_wv=db1;     base_alpha=0.0; base_m=3; base_gd=0.5; base_l1=0.0;     base_bs=256; base_as=1.25; base_alr=1.4; base_ad=0.1; base_cycle=24; base_freq=h; base_wd=0.01 ;;
     ETTh1_720) base_dm=32; base_ff=32;  base_el=1; base_lr=0.009; base_wv=bior3.3; base_alpha=0.9; base_m=1; base_gd=0.5; base_l1=0.0005;  base_bs=256; base_as=1.25; base_alr=1.4; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
@@ -184,14 +184,14 @@ for pred_len in 96 192 336 720; do
     ETTm1_720) base_dm=32; base_ff=32;  base_el=1; base_lr=0.02; base_wv=db4; base_alpha=0.1; base_m=3; base_gd=0.5; base_l1=0.005; base_bs=256; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
 
     ETTh2_96)  base_dm=32; base_ff=32;  base_el=1; base_lr=0.006;  base_wv=bior3.3; base_alpha=0.1;  base_m=3; base_gd=0.35; base_l1=0.0005;  base_bs=256; base_as=0.75; base_alr=2.0; base_ad=0.2;  base_cycle=24; base_freq=h; base_wd=0.01 ;;
-    ETTh2_192) base_dm=32; base_ff=32;  base_el=1; base_lr=0.0069; base_wv=sym2;    base_alpha=0.1;  base_m=3; base_gd=0.35; base_l1=0.005;   base_bs=256; base_as=1.0;  base_alr=1.0; base_ad=0.0;  base_cycle=24; base_freq=h; base_wd=0.01 ;;
-    ETTh2_336) base_dm=96; base_ff=96;  base_el=2; base_lr=0.003;  base_wv=sym2;    base_alpha=0.9;  base_m=2; base_gd=0.35; base_l1=0.0;     base_bs=256; base_as=1.0;  base_alr=1.0; base_ad=0.0;  base_cycle=24; base_freq=h; base_wd=0.01 ;;
+    ETTh2_192) base_dm=32; base_ff=32;  base_el=1; base_lr=0.0069; base_wv=db1;     base_alpha=0.05; base_m=1; base_gd=0.5;  base_l1=0.005;   base_bs=256; base_as=0.35; base_alr=0.3; base_ad=0.0;  base_cycle=24; base_freq=h; base_wd=0.01 ;;
+    ETTh2_336) base_dm=96; base_ff=96;  base_el=2; base_lr=0.003;  base_wv=db1;     base_alpha=0.85; base_m=1; base_gd=0.5;  base_l1=0.0;     base_bs=256; base_as=0.35; base_alr=0.3; base_ad=0.0;  base_cycle=24; base_freq=h; base_wd=0.01 ;;
     ETTh2_720) base_dm=64; base_ff=128; base_el=2; base_lr=0.0033; base_wv=db1;     base_alpha=0.95; base_m=1; base_gd=0.35; base_l1=0.00001; base_bs=256; base_as=0.2;  base_alr=0.5; base_ad=0.05; base_cycle=24; base_freq=h; base_wd=0.005 ;;
 
     ETTm2_96)  base_dm=32; base_ff=32; base_el=1; base_lr=0.006;  base_wv=bior3.1; base_alpha=0.3; base_m=3; base_gd=0.5;  base_l1=0.0005;  base_bs=256; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=96; base_freq=t; base_wd=0.01 ;;
     ETTm2_192) base_dm=32; base_ff=32; base_el=1; base_lr=0.0042; base_wv=bior3.1; base_alpha=0.0; base_m=1; base_gd=0.5;  base_l1=0.005;   base_bs=256; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
     ETTm2_336) base_dm=64; base_ff=64; base_el=1; base_lr=0.006;  base_wv=bior3.3; base_alpha=0.6; base_m=1; base_gd=0.75; base_l1=0.00005; base_bs=128; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
-    ETTm2_720) base_dm=96; base_ff=96; base_el=1; base_lr=0.003;  base_wv=db1;     base_alpha=1.0; base_m=3; base_gd=0.5;  base_l1=0.0;     base_bs=256; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=96; base_freq=t; base_wd=0.01 ;;
+    ETTm2_720) base_dm=96; base_ff=96; base_el=1; base_lr=0.003;  base_wv=db1;     base_alpha=1.0; base_m=2; base_gd=0.5;  base_l1=0.0;     base_bs=256; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
 
     ECL_96)  base_dm=256; base_ff=1024; base_el=1; base_lr=0.01;  base_wv=db1; base_alpha=0.0; base_m=3; base_gd=0.5; base_l1=0.0;     base_bs=256; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=168; base_freq=h; base_wd=0.01 ;;
     ECL_192) base_dm=256; base_ff=1024; base_el=1; base_lr=0.006; base_wv=db1; base_alpha=0.0; base_m=3; base_gd=0.5; base_l1=0.0;     base_bs=256; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=168; base_freq=h; base_wd=0.01 ;;
@@ -208,14 +208,14 @@ for pred_len in 96 192 336 720; do
     Traffic_336) base_dm=1024; base_ff=2048; base_el=1; base_lr=0.0005; base_wv=db1; base_alpha=0.1; base_m=1; base_gd=0.5; base_l1=0.0; base_bs=32; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=168; base_freq=h; base_wd=0.01 ;;
     Traffic_720) base_dm=1024; base_ff=2048; base_el=1; base_lr=0.0005; base_wv=db1; base_alpha=0.1; base_m=1; base_gd=0.5; base_l1=0.0; base_bs=32; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=168; base_freq=h; base_wd=0.01 ;;
 
-    Solar_96)  base_dm=64;  base_ff=128; base_el=1; base_lr=0.006; base_wv=db8;     base_alpha=0.0; base_m=3; base_gd=0.5; base_l1=0.005; base_bs=256; base_as=0.75; base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
-    Solar_192) base_dm=128; base_ff=256; base_el=1; base_lr=0.003; base_wv=db8;     base_alpha=0.0; base_m=1; base_gd=0.5; base_l1=0.005; base_bs=256; base_as=1.0;  base_alr=1.0; base_ad=0.0; base_cycle=1;  base_freq=h; base_wd=0.01 ;;
+    Solar_96)  base_dm=256; base_ff=512; base_el=1; base_lr=0.01;  base_wv=db8;     base_alpha=0.0; base_m=3; base_gd=0.5; base_l1=0.005; base_bs=256; base_as=1.0;  base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
+    Solar_192) base_dm=128; base_ff=256; base_el=1; base_lr=0.003; base_wv=db8;     base_alpha=0.0; base_m=1; base_gd=0.5; base_l1=0.005; base_bs=256; base_as=1.5;  base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
     Solar_336) base_dm=128; base_ff=512; base_el=1; base_lr=0.003; base_wv=db8;     base_alpha=0.1; base_m=1; base_gd=0.5; base_l1=0.005; base_bs=256; base_as=1.0;  base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
-    Solar_720) base_dm=128; base_ff=256; base_el=1; base_lr=0.009; base_wv=bior3.1; base_alpha=0.0; base_m=1; base_gd=0.5; base_l1=0.005; base_bs=256; base_as=1.0;  base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
+    Solar_720) base_dm=128; base_ff=512; base_el=1; base_lr=0.009; base_wv=db8;     base_alpha=0.0; base_m=1; base_gd=0.5; base_l1=0.005; base_bs=256; base_as=1.0;  base_alr=1.0; base_ad=0.0; base_cycle=24; base_freq=h; base_wd=0.01 ;;
 
     Exchange_96)  base_dm=384; base_ff=512; base_el=2; base_lr=0.0002; base_wv=db1; base_alpha=0.3; base_m=3; base_gd=0.5; base_l1=0.00005; base_bs=128; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=7; base_freq=d; base_wd=0.01 ;;
     Exchange_192) base_dm=128; base_ff=128; base_el=1; base_lr=0.001;  base_wv=db1; base_alpha=0.3; base_m=3; base_gd=0.5; base_l1=0.00005; base_bs=128; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=7; base_freq=d; base_wd=0.01 ;;
-    Exchange_336) base_dm=384; base_ff=512; base_el=2; base_lr=0.01;   base_wv=db1; base_alpha=0.3; base_m=3; base_gd=0.5; base_l1=0.00005; base_bs=128; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=7; base_freq=d; base_wd=0.01 ;;
+    Exchange_336) base_dm=256; base_ff=256; base_el=1; base_lr=0.002;  base_wv=db1; base_alpha=0.3; base_m=3; base_gd=0.5; base_l1=0.00005; base_bs=128; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=7; base_freq=d; base_wd=0.01 ;;
     Exchange_720) base_dm=256; base_ff=512; base_el=2; base_lr=0.002;  base_wv=db1; base_alpha=0.3; base_m=3; base_gd=0.5; base_l1=0.00005; base_bs=128; base_as=1.0; base_alr=1.0; base_ad=0.0; base_cycle=7; base_freq=d; base_wd=0.01 ;;
   esac
 
